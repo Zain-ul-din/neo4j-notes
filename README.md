@@ -33,7 +33,7 @@ winpty docker exec -it my-neo4j cypher-shell
 Syntax for inserting a node
 
 ```cypher
-CREATE (variable_name: LABEL { ...props })
+CREATE (variable_name: LABEL { ...props });
 ```
 
 example:
@@ -42,12 +42,19 @@ example:
 CREATE (s1:Site {url: 'https://www.google.com', title: 'Google', description: 'The world\'s most popular search engine.'});
 ```
 
+example of node insertion with timestamp,
+
+```cypher
+CREATE (f:Folder { name: 'Tech', createdAt: datetime() });
+```
+
+
 ### Visualize your data
 
 Neo4j provides a browser experience that allows us to see a visual representation of our data. to open it go to [http://localhost:7474/browser/](http://localhost:7474/browser/) and set the authentication type to none since we are just running locally.
 
-to see all the data paste `SELECT (n) RETURN n` inside code cell and run it
+to see all the data paste `MATCH (n) RETURN n` inside the code cell and run it
 
-![image](https://github.com/user-attachments/assets/71e9b5d9-c1a4-47bf-be33-196b22f7381c)
+![image](https://github.com/user-attachments/assets/7381aa19-924e-44cc-a882-bc6bdd3f51c6)
 
 
