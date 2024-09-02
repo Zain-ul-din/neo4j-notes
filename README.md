@@ -99,3 +99,39 @@ RETURN f, newFolder;
 
 ![image](https://github.com/user-attachments/assets/253f709d-2c10-4ea0-8bbe-33b6dd3564df)
 
+To insert a new site in a nested folder run:
+
+```cypher
+MATCH (f:Folder) WHERE f.name = 'Web'
+CREATE (s:Site {
+  url: 'https://developer.mozilla.org/en-US/', 
+  title: 'MDN', 
+  description: 'The MDN Web Docs site provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and progressive web apps' 
+})
+CREATE (f)-[:CONTAINS]->(s)
+RETURN f,s;
+```
+
+Query to add multiple sites at once:
+
+```cypher
+MATCH (f:Folder) WHERE f.name = 'Web'
+UNWIND [
+  { url: 'https://reactjs.org/', title: 'React', description: 'A JavaScript library for building user interfaces.' },
+  { url: 'https://nodejs.org/', title: 'Node.js', description: 'A JavaScript runtime built on Chrome\'s V8 JavaScript engine.' },
+  { url: 'https://docs.nestjs.com/', title: 'NestJS', description: 'A progressive Node.js framework for building efficient, reliable, and scalable server-side applications.' }
+] AS site
+CREATE (s:Site {
+  url: site.url, 
+  title: site.title, 
+  description: site.description
+})
+CREATE (f)-[:CONTAINS]->(s)
+RETURN f, s;
+```
+
+![image](https://github.com/user-attachments/assets/d3fe23a6-9119-4370-9cbe-ee5179481ec1)
+
+
+> In Neo4j's Cypher query language, the `UNWIND` clause is used to transform a list of values into individual rows. Essentially, it "unwraps" a list so that each item in the list becomes a separate row in the result set. This is particularly useful when you want to perform operations on multiple items within a single query.
+
