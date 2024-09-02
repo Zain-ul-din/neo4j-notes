@@ -49,7 +49,7 @@ CREATE (f:Folder { name: 'Tech', createdAt: datetime() });
 ```
 
 
-### Visualize your data
+#### Visualize your data
 
 Neo4j provides a browser experience that allows us to see a visual representation of our data. to open it go to [http://localhost:7474/browser/](http://localhost:7474/browser/) and set the authentication type to none since we are just running locally.
 
