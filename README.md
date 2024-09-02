@@ -2,6 +2,10 @@
 
 Neo4j is a native graph database that lets us build nodes and relationships effortlessly.
 
+### Terms 
+
+**Cypher:** is a query language in neo4j that lets us query data from a graph.
+
 ### Run Neo4j locally
 
 To run neo4j locally install docker on your os and run the following command that will pull the docker image and run it,
@@ -21,3 +25,4 @@ docker exec -it my-neo4j cypher-shell
 ```bash
 winpty docker exec -it my-neo4j cypher-shell
 ```
+
