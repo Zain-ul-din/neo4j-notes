@@ -146,3 +146,16 @@ RETURN DISTINCT descendants;
 ```
 
 ![image](https://github.com/user-attachments/assets/931fafbb-c7d0-4de5-a15d-6b4a502bb70b)
+
+We can also specify a depth how deep we want to query using this query:
+In this case, we are specifying depth 1 and saying just querying direct children.
+
+```cypher
+MATCH (f:Folder)
+WHERE f.name = 'Tech'
+OPTIONAL MATCH (f)-[:CONTAINS*1]->(descendants)
+RETURN DISTINCT descendants;
+``` 
+
+![image](https://github.com/user-attachments/assets/a22a9372-8a3d-4568-8b63-5db838a60514)
+
