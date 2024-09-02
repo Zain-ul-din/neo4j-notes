@@ -55,7 +55,7 @@ CREATE (f:Folder { name: 'Tech', createdAt: datetime() });
 ```
 
 
-#### Visualize your data
+#### Visualize your data:
 
 Neo4j provides a browser experience that allows us to see a visual representation of our data. to open it go to [http://localhost:7474/browser/](http://localhost:7474/browser/) and set the authentication type to none since we are just running locally.
 
@@ -84,4 +84,18 @@ RETURN f, s;
 ```
 
 ![image](https://github.com/user-attachments/assets/14d1ff67-6b07-4916-8402-1607fddc3261)
+
+#### Nested relationship
+
+To create a nested relationship where a folder is inside another folder, run the following query:
+
+```cypher
+MATCH (f:Folder) 
+WHERE f.name = 'Tech' 
+CREATE (newFolder:Folder { name: 'Web', createdAt: datetime() })
+CREATE (f)-[:CONTAINS]->(newFolder)
+RETURN f, newFolder;
+```
+
+![image](https://github.com/user-attachments/assets/253f709d-2c10-4ea0-8bbe-33b6dd3564df)
 
