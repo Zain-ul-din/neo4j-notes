@@ -130,8 +130,6 @@ CREATE (f)-[:CONTAINS]->(s)
 RETURN f, s;
 ```
 
-![image](https://github.com/user-attachments/assets/d3fe23a6-9119-4370-9cbe-ee5179481ec1)
-
-
 > In Neo4j's Cypher query language, the `UNWIND` clause is used to transform a list of values into individual rows. Essentially, it "unwraps" a list so that each item in the list becomes a separate row in the result set. This is particularly useful when you want to perform operations on multiple items within a single query.
 
+![image](https://github.com/user-attachments/assets/d3fe23a6-9119-4370-9cbe-ee5179481ec1)
