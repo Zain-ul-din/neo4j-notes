@@ -57,4 +57,25 @@ to see all the data paste `MATCH (n) RETURN n` inside the code cell and run it
 
 ![image](https://github.com/user-attachments/assets/7381aa19-924e-44cc-a882-bc6bdd3f51c6)
 
+### Relationships
+
+Syntax to create relationship:
+
+```cypher
+CREATE (NODE)-[:LABEL]->(NODE)
+```
+
+- `NODE:` Represents a node in the graph.
+- `LABEL:` Represents the type of relationship between nodes.
+
+In our case, A folder can contain many sites. To link sites to the folder run the following query,
+
+```cypher
+MATCH (f:Folder {name: 'Tech'}), (s:Site)
+WHERE s.url IN ['https://www.github.com', 'https://www.stackoverflow.com']
+CREATE (f)-[:CONTAINS]->(s)
+RETURN f, s;
+```
+
+![image](https://github.com/user-attachments/assets/14d1ff67-6b07-4916-8402-1607fddc3261)
 
