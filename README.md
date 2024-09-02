@@ -14,6 +14,12 @@ To run neo4j locally install docker on your os and run the following command tha
 docker run -dit --rm --name=my-neo4j -p 7474:7474 -p 7687:7687 --env=NEO4J_AUT
 ```
 
+flags explanation:
+
+- `-p` 7474:7474 exposes the Neo4j browser interface on port 7474.
+- `-p` 7687:7687 exposes the Bolt protocol for Cypher queries on port 7687.
+- `--env=NEO4J_AUTH=` sets the default username and password (neo4j/test).
+
 to run neo4j REPL run the following command that will let us interact with the database using `cypher` or commands 
 
 ```bash
