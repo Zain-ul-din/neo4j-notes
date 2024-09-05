@@ -11,7 +11,7 @@ Neo4j is a native graph database that lets us build nodes and relationships effo
 To run neo4j locally install docker on your os and run the following command that will pull the docker image and run it,
 
 ```bash
-docker run -dit --rm --name=my-neo4j -p 7474:7474 -p 7687:7687 --env=NEO4J_AUT
+docker run -dit --rm --name=my-neo4j -p 7474:7474 -p 7687:7687 --env=NEO4J_AUTH
 ```
 
 flags explanation:
